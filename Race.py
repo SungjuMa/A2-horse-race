@@ -6,24 +6,24 @@ import time
 
 class Horse:
     def __init__(self,speed,y,image,window):
-        self.x = 50
-        self.y = y
+        self.x_pos = 50
+        self.y_pos = y
         self.image = image
         self.window = window
         self.dice = Dice(speed)
 
     def move(self):
         roll_value = self.dice.roll()
-        self.x += roll_value
+        self.x_pos += roll_value
 
     def draw(self):
         try:
             self.image.undraw()
         except:
             pass
-        self.image.draw_at_pos(self.window,self.x, self.y)
+        self.image.draw_at_pos(self.window,self.x_pos, self.y_pos)
     def crossed_finish_line(self, finsih_x):
-        return self.x >= finsih_x
+        return self.x_pos >= finsih_x
 
 def main():
     win = GraphWin("Horse Race", 700,700)
